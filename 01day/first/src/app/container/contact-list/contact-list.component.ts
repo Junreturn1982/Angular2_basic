@@ -14,10 +14,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class ContactListComponent {
     message: string = "Xin chao, ContactListComponent";
     printable = true;
-    tabIndex = 1;
+    tabIndex: number = 1;
     changeTab(tabIndex) {
         this.tabIndex = tabIndex;
     }
+    colorH3: string = 'blue';
     contacts = [
         {
             id: 1,
