@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 // view
 @Component({
     selector: 'hoang-contact-list',
-    templateUrl: './contact-list.component.html'
+    templateUrl: './contact-list.component.html',
+    styleUrls: [
+        './contact-list.component.scss'
+    ]
 })
 // controller
 export class ContactListComponent {
@@ -33,7 +36,9 @@ export class ContactListComponent {
             id: 3,
             name: "Ngan",
             job: "web developer",
-           
+            // avatar: {
+            //     url: "http://via.placeholder.com/100/ff66cc/000000"
+            // }
         }
     ];
 }

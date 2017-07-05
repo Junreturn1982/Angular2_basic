@@ -4,9 +4,9 @@
 
 <div *ngIf="contacts">
     <div *ngFor="let contact of contacts">
-        <h3>{{ contact.name }}</h3>
+        <h3 class="h-username">{{ contact.name }}</h3>
         <div>
-            <img *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">
+            <img class="h-avatar" *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">
         </div>
     </div>
 </div>
