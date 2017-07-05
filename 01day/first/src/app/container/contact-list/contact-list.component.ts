@@ -8,7 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
     ],
     // bound css default Emulated: global + không nhận cha + nhận chính nó, 
     // Native: không global + ko nhận cha + nhận chính nó, None: global
-    encapsulation: ViewEncapsulation.Native
+    encapsulation: ViewEncapsulation.Emulated
 })
 // controller
 export class ContactListComponent {
