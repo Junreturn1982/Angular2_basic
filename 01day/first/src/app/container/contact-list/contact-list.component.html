@@ -10,3 +10,21 @@
         </div>
     </div>
 </div>
+
+<div>
+    <button (click)="changeTab(1)">Tab 1</button>
+    <button (click)="changeTab(2)">Tab 2</button>
+    <button (click)="changeTab(3)">Tab 3</button>
+</div>
+<div [ngSwitch]="tabIndex">
+    <ng-template [ngSwitchCase]="1">
+        <div>Tab content 1</div>
+        <p>lorem</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="2">
+        <div>Tab content 2</div>
+    </ng-template>
+    <ng-template [ngSwitchCase]="3">
+        <div>Tab content 3</div>
+    </ng-template>
+</div>

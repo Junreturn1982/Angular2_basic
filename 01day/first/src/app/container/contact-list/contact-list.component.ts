@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class ContactListComponent {
     message: string = "Xin chao, ContactListComponent";
     printable = true;
-
+    tabIndex = 1;
+    changeTab(tabIndex) {
+        this.tabIndex = tabIndex;
+    }
     contacts = [
         {
             id: 1,
