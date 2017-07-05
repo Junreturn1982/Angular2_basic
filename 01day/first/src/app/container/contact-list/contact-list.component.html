@@ -1,6 +1,6 @@
 <button (click)="printable = !printable">Toggle message</button>
-<h2 *ngIf="printable">{{ message }}</h2>
-<p>printable: {{ printable }}</p>
+<h1 *ngIf="printable">{{ message }}</h1>
+<p>ContactListComponent -> printable: {{ printable }}</p>
 
 <div *ngIf="contacts">
     <div *ngFor="let contact of contacts">

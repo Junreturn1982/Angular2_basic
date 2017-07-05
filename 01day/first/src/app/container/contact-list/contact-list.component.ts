@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 // view
 @Component({
     selector: 'hoang-contact-list',
     templateUrl: './contact-list.component.html',
     styleUrls: [
         './contact-list.component.scss'
-    ]
+    ],
+    // bound css default Emulated: global + không nhận cha + nhận chính nó, 
+    // Native: không global + ko nhận cha + nhận chính nó, None: global
+    encapsulation: ViewEncapsulation.Native
 })
 // controller
 export class ContactListComponent {
