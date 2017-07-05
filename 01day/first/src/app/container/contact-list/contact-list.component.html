@@ -1,3 +1,12 @@
 <button (click)="printable = !printable">Toggle message</button>
 <h2 *ngIf="printable">{{ message }}</h2>
 <p>printable: {{ printable }}</p>
+
+<div *ngIf="contacts">
+    <div *ngFor="let contact of contacts">
+        <h3>{{ contact.name }}</h3>
+        <div>
+            <img *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">
+        </div>
+    </div>
+</div>

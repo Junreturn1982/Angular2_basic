@@ -8,4 +8,29 @@ import { Component } from '@angular/core';
 export class ContactListComponent {
     message: string = "Xin chao, ContactListComponent";
     printable = true;
+
+    contacts = [
+        {
+            id: 1,
+            name: "Hoang",
+            job: "web developer",
+            avatar: {
+                url: "http://via.placeholder.com/100x100"
+            }
+        },
+        {
+            id: 2,
+            name: "Lan",
+            job: "web developer",
+            avatar: {
+                url: "http://placehold.it/100/09f.png/fff"
+            }
+        },
+        {
+            id: 3,
+            name: "Ngan",
+            job: "web developer",
+           
+        }
+    ];
 }
