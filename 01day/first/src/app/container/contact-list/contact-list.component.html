@@ -4,7 +4,7 @@
 
 <div *ngIf="contacts">
     <div *ngFor="let contact of contacts">
-        <h3 class="h-username" [style.line-height.rem]="printable ? 5.8 : 1.2">{{ contact.name }}</h3>
+        <h3 class="h-username" [style.line-height.rem]="printable ? 5.8 : 1.2" [ngStyle]="{'fontSize.rem': 2.5}">{{ contact.name }}</h3>
         <div>
             <img class="h-avatar" *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">
         </div>
