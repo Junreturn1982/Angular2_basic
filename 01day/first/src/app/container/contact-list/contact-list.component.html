@@ -12,13 +12,13 @@
 </div>
 
 <div>
-    <!--<button (click)="changeTab(1)" class="btn" [class.active]="tabIndex == 1">Tab 1</button>
-    <button (click)="changeTab(2)" class="btn" [class.active]="tabIndex == 2">Tab 2</button>
-    <button (click)="changeTab(3)" class="btn" [class.active]="tabIndex == 3">Tab 3</button>-->
+    <button (click)="changeTab(1)" class="btn" [ngClass]="{active: tabIndex == 1}">Tab 1</button>
+    <button (click)="changeTab(2)" class="btn" ngClass="btn-default btn-awesome">Tab 2</button>
+    <button (click)="changeTab(3)" class="btn" [ngClass]="['btn-default', 'btn-awesome']">Tab 3</button>
 
-    <button (click)="changeTab(1)" [class]="tabIndex == 1 ? 'btn active' : 'btn'">Tab 1</button>
+    <!--<button (click)="changeTab(1)" [class]="tabIndex == 1 ? 'btn active' : 'btn'">Tab 1</button>
     <button (click)="changeTab(2)" [class]="tabIndex == 2 ? 'btn active' : 'btn'">Tab 2</button>
-    <button (click)="changeTab(3)" [class]="tabIndex == 3 ? 'btn active' : 'btn'">Tab 3</button>
+    <button (click)="changeTab(3)" [class]="tabIndex == 3 ? 'btn active' : 'btn'">Tab 3</button>-->
 </div>
 <div [ngSwitch]="tabIndex">
     <ng-template [ngSwitchCase]="1">
