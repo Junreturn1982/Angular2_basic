@@ -4,5 +4,15 @@
     Welcome to {{title}}!!
   </h1>
 </div>
+<div>
+  <!--<input type="text" (change)="onChange($event)">-->
+  <input type="text" (keyup.enter)="onChange($event)">
+  <button (click)="onClick()">Button...</button>
+</div>
+<ul>
+  <li *ngFor="let message of messages">
+    {{ message }}
+  </li>
+</ul>
 <p>Data from App Component</p>
 <hoang-contact-list>Loading...</hoang-contact-list>
