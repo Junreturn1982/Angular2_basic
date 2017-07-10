@@ -6,8 +6,18 @@ import { Component, OnInit, Input } from "@angular/core";
     styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit {
-    @Input('avatar-url') avatarUrl: string = '';
+    private _avatarUrl: string = '';
+    
     constructor() {}
+    
+    get avatarUrl() {
+        return this._avatarUrl;
+    }
+    @Input('avatar-url')
+    set avatarUrl(value: string) {
+        this._avatarUrl = value.trim();
+    }
+    
     // lifecycle hook
     ngOnInit() {
         if (!this.avatarUrl) {
