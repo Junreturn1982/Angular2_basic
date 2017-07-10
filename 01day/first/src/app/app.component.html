@@ -6,7 +6,7 @@
 </div>
 <div>
   <!--<input type="text" (change)="onChange($event)">-->
-  <input type="text" (keyUp.enter)="onChange($event)">
+  <input type="text" [(ngModel)]="message" (keyUp.enter)="onClick()">
   <button (click)="onClick()">Button...</button>
 </div>
 <ul>

@@ -12,12 +12,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app first: Hello Hoang';
-  messages = [];
+  messages: string[] = [];
+  message: string = '';
 
   onClick() {
-    console.log('App component click')
+    this.messages.push(this.message);
+    this.message = ''; 
   }
-  onChange(event) {
-    this.messages.push(event.target.value);
-  }
+ 
+  
 }
