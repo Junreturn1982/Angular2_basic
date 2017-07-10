@@ -20,7 +20,7 @@ export class SwitchesComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // passing data output component
   emitChangeValue(event): void {
     // event.stopPropagation();
     this.change.emit(event.target.checked);

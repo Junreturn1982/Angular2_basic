@@ -14,6 +14,7 @@ export class ContactDetailComponent implements OnInit {
     get avatarUrl() {
         return this._avatarUrl;
     }
+    // passing data to component
     @Input('avatar-url')
     set avatarUrl(value: string) {
         this._avatarUrl = value.trim();
