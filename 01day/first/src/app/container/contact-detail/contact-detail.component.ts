@@ -4,10 +4,11 @@ import { Component, OnInit, Input } from "@angular/core";
     selector: 'hoang-contact-detail',
     templateUrl: './contact-detail.component.html',
     styleUrls: ['./contact-detail.component.css']
+    // inputs: ['avatarUrl: avatar-url']
 })
 export class ContactDetailComponent implements OnInit {
     private _avatarUrl: string = '';
-    
+    @Input() round: boolean = false;
     constructor() {}
     
     get avatarUrl() {
