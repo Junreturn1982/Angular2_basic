@@ -13,7 +13,7 @@ import {
 })
 export class SwitchesComponent implements OnInit {
   @Input() checked: Boolean = false;
-  @Output() change: EventEmitter<boolean> 
+  @Output('checkedChange') change: EventEmitter<boolean> 
                             = new EventEmitter<boolean>();
 
   constructor() { }
@@ -22,7 +22,7 @@ export class SwitchesComponent implements OnInit {
   }
 
   emitChangeValue(event): void {
-    event.stopPropagation();
+    // event.stopPropagation();
     this.change.emit(event.target.checked);
   }
 }
