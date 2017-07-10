@@ -32,6 +32,7 @@ export class ContactListComponent {
             name: "Hoang",
             job: "web developer",
             avatar: {
+                round: true,
                 url: "http://via.placeholder.com/100x100"
             }
         },
@@ -40,6 +41,7 @@ export class ContactListComponent {
             name: "Lan",
             job: "web developer",
             avatar: {
+                round: true,
                 url: "http://placehold.it/100/09f.png/fff"
             }
         },
@@ -47,9 +49,10 @@ export class ContactListComponent {
             id: 3,
             name: "Ngan",
             job: "web developer",
-            // avatar: {
-            //     url: "http://via.placeholder.com/100/ff66cc/000000"
-            // }
+            avatar: {
+                round: false,
+                url: "http://via.placeholder.com/100/ff66cc/000000"
+            }
         }
     ];
     serverContacts = [
@@ -96,5 +99,9 @@ export class ContactListComponent {
 
     contactTrackByFn(index, item) {
         return item.id;
+    }
+
+    switchesValueChange(event: boolean, index) {
+        this.contacts[index].avatar.round = event;
     }
 }

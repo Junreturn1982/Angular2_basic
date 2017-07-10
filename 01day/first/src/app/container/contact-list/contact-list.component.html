@@ -14,9 +14,13 @@
         </h3>
         <div>
             <!--<img class="h-avatar" *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">-->
+            <hoang-switches [checked]="contact.avatar?.round"
+            (change)="switchesValueChange($event, i)">
+
+            </hoang-switches>
             <hoang-contact-detail *ngIf="contact.avatar?.url"
                 [avatar-url]="contact.avatar?.url"
-                [round]="true">
+                [round]="contact.avatar?.round">
             </hoang-contact-detail>
         </div>
     </div>
