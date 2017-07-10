@@ -1,10 +1,17 @@
 <button (click)="printable = !printable">Toggle message</button>
 <h1 *ngIf="printable">{{ message }}</h1>
 <p>ContactListComponent -> printable: {{ printable }}</p>
-
-<div *ngIf="contacts">
-    <div *ngFor="let contact of contacts">
-        <h3 class="h-username" [style.line-height.rem]="printable ? 5.8 : 1.2" [ngStyle]="{'fontSize.rem': 2.5}">{{ contact.name }}</h3>
+<div>
+    <button class="btn" (click)="getContact()">
+        Get contacts
+    </button>
+</div>
+<div *ngIf="contacts" class="tp-block--flex">
+    <div *ngFor="let contact of contacts; let i = index; let fst = first; trackBy: contactTrackByFn" class="tp-block--1-4"
+        [ngClass]="{'tp-special': fst}" >
+        <h3 class="h-username" [style.line-height.rem]="printable ? 5.8 : 1.2" [ngStyle]="{'fontSize.rem': 2.5}">
+            {{ contact.name }} item no. {{ i }}
+        </h3>
         <div>
             <img class="h-avatar" *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" alt="Avatar of {{ contact.name }}">
         </div>

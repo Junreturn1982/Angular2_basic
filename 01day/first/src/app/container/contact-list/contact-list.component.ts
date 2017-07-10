@@ -15,10 +15,17 @@ export class ContactListComponent {
     message: string = "Xin chao, ContactListComponent";
     printable = true;
     tabIndex: number = 1;
-    changeTab(tabIndex) {
-        this.tabIndex = tabIndex;
-    }
+   
     colorH3: string = 'blue';
+    static clickCounter = 0;
+    baseContact = {
+        id: 4,
+        name: "User 04",
+        job: "marketing online",
+        avatar: {
+            url: "http://via.placeholder.com/100/ff66cc/000000"
+        }
+    }
     contacts = [
         {
             id: 1,
@@ -45,4 +52,49 @@ export class ContactListComponent {
             // }
         }
     ];
+    serverContacts = [
+        {
+            id: 1,
+            name: "Hoang",
+            job: "web developer",
+            avatar: {
+                url: "http://via.placeholder.com/100x100"
+            }
+        },
+        {
+            id: 2,
+            name: "Lan",
+            job: "web developer",
+            avatar: {
+                url: "http://placehold.it/100/09f.png/fff"
+            }
+        },
+        {
+            id: 3,
+            name: "Ngan",
+            job: "web developer",
+            avatar: {
+                url: "http://via.placeholder.com/100/ff66cc/000000"
+            }
+        }
+    ];
+     changeTab(tabIndex) {
+        this.tabIndex = tabIndex;
+    }
+    getDataFromServer() {
+        return JSON.parse(JSON.stringify(this.serverContacts));
+    }
+
+    getContact() {
+        if(ContactListComponent.clickCounter % 2 == 0) {
+            this.contacts = this.getDataFromServer().concat(this.baseContact);
+        } else {
+            this.contacts = this.getDataFromServer().concat([]);
+        }
+        ContactListComponent.clickCounter++;
+    }
+
+    contactTrackByFn(index, item) {
+        return item.id;
+    }
 }
