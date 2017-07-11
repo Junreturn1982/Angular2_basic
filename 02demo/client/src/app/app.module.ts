@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SwitchesComponent } from "app/container/switches/switches.component";
+import { CardComponent } from 'app/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SwitchesComponent
+    SwitchesComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

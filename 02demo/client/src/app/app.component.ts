@@ -11,20 +11,7 @@ import { SwitchesComponent } from "app/container/switches/switches.component";
   // `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'app first: Hello Hoang';
-  @ViewChild('nameInput') name: ElementRef;
-  @ViewChild('switches') switches: SwitchesComponent;
   
-  sayHello() {
-    console.log(this.name.nativeElement.value);
-    this.switches.toggle();
-  }  
-
-  ngAfterViewInit() {
-    this.name.nativeElement.focus();
-  }
-  // onSubmit(formValue: any) {
-  //   console.log(formValue);
-  // }
 }
