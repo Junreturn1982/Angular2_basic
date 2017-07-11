@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SwitchesComponent } from "app/container/switches/switches.component";
 
 @Component({
@@ -11,7 +11,7 @@ import { SwitchesComponent } from "app/container/switches/switches.component";
   // `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'app first: Hello Hoang';
   @ViewChild('nameInput') name: ElementRef;
   @ViewChild('switches') switches: SwitchesComponent;
@@ -21,7 +21,10 @@ export class AppComponent {
     this.switches.toggle();
   }  
 
-  onSubmit(formValue: any) {
-    console.log(formValue);
+  ngAfterViewInit() {
+    this.name.nativeElement.focus();
   }
+  // onSubmit(formValue: any) {
+  //   console.log(formValue);
+  // }
 }
