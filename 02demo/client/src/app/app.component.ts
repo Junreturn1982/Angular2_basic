@@ -17,7 +17,7 @@ export class AppComponent {
     console.log(name);
   }  
 
-  onSubmit() {
-    
+  onSubmit(formValue: any) {
+    console.log(formValue);
   }
 }

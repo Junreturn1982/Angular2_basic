@@ -27,9 +27,11 @@
        role="button">View more articles &raquo;</a>
   </div>
   <div class="tp-app__content">
-    <!-- #nameInput: template variable-->
-    <input type="text" #nameInput>
-    <button (click)="sayHello(nameInput.value)">Click me</button>
+    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm" novalidate>
+      <!-- #nameInput: template variable-->
+      <input type="text" #nameInput name="username" ngModel required>
+      <button type="submin" [disabled]="!f.valid">Submit</button>
+    </form>
     <hoang-switches #switches></hoang-switches>
   </div>
 </div>
