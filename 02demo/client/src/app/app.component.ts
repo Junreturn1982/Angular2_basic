@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { SwitchesComponent } from "app/container/switches/switches.component";
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app first: Hello Hoang';
+  @ViewChild('nameInput') name: ElementRef;
+  @ViewChild('switches') switches: SwitchesComponent;
   
-  sayHello(name: string) {
-    console.log(name);
+  sayHello() {
+    console.log(this.name.nativeElement.value);
+    this.switches.toggle();
   }  
 
   onSubmit(formValue: any) {
