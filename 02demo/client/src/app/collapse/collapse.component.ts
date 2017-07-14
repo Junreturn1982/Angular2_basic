@@ -1,4 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+
+export interface DataCollapseChange {
+  collapseId: string;
+  selected: boolean;
+}
+
+let uuid: number = 1;
 
 @Component({
   selector: 'tp-collapse',
@@ -8,13 +15,26 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CollapseComponent implements OnInit {
   @Input() title:string = '';
   @Input() selected:boolean = false;
-  
+  @Output() selectedChange: EventEmitter<DataCollapseChange> = new EventEmitter();
+
+  private _id: number;
+
   constructor() { }
 
   ngOnInit() {
+    this._id = ++uuid;
   }
+
+  get collapseId() {
+    return 'tp-collapse' + this._id;
+  }
+
 
   toggleSelected() {
     this.selected = !this.selected;
+    this.selectedChange.emit({
+      collapseId: this.collapseId,
+      selected: this.selected
+    })
   }
 }
