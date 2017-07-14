@@ -13,13 +13,23 @@ export class CollapseGroupComponent implements OnInit, AfterContentInit, OnDestr
   @Input() multiple: boolean = true;
 
   private _subcriptions: Subscription[] = [];
+  private _changeSubs: Subscription;
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  // life cycle
   ngAfterContentInit() {
+    this.initListener();
+    this._changeSubs = this.collapses.changes.subscribe(() => {
+      // prevent leak memory
+      this.clearListener();
+      this.initListener();
+    });
+  }
+
+  initListener() {
     this.collapses.forEach(collapse => {
       let subcription = collapse.selectedChange.subscribe(coll => {
         if(!this.multiple && coll.selected) {
@@ -29,6 +39,7 @@ export class CollapseGroupComponent implements OnInit, AfterContentInit, OnDestr
       this._subcriptions.push(subcription);
     });
   }
+
   toggleCollapse(collapse): any {
     this.collapses.forEach(c => {
       if(c.collapseId != collapse.collapseId) {
@@ -37,6 +48,14 @@ export class CollapseGroupComponent implements OnInit, AfterContentInit, OnDestr
     });
   }
   ngOnDestroy() {
-    this._subcriptions.forEach(sub => sub.unsubscribe());
+    this.clearListener();
+    this._changeSubs.unsubscribe();
+  }
+
+  clearListener() {
+    if(this._subcriptions && this._subcriptions.length) {
+      this._subcriptions.forEach(sub => sub.unsubscribe());
+    }
+    this._subcriptions = [];
   }
 }
