@@ -1,5 +1,6 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { SwitchesComponent } from "app/container/switches/switches.component";
+import { POSTS } from "app/services/post";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,12 @@ import { SwitchesComponent } from "app/container/switches/switches.component";
   // `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app first: Hello Hoang';
+export class AppComponent implements OnInit {
+  posts: any[] = [];
   
+  ngOnInit() {
+    setTimeout(() => {
+      this.posts = POSTS.slice();
+    }, 500);
+  }
 }
